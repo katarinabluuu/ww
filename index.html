@@ -1,0 +1,184 @@
+    <!DOCTYPE html>
+    <html lang="mn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Монгол Шуудан</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        
+        <header class="header">
+            <img src="logo.png" alt="Mongol Post Logo" class="logo">
+        </header>
+
+        <div class="tabs">
+            <div class="tab active" onclick="showSection('price-calculator')">Үнэ тооцоолох</div>
+            <div class="tab" onclick="showSection('track-parcel')">Илгээмж хайх</div>
+            <div class="tab" onclick="showSection('order')">Захиалга хийх</div>
+        </div>
+
+        <div id="price-calculator" class="container">
+            <h1>Хүргэлтийн үнийг тооцоолох</h1>
+            <form>
+                <div class="form-group">
+                    <label for="pickup-location">Очих газрын хаяг</label>
+                    <input type="text" id="pickup-location" name="pickup-location">
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-apartment">Байрны дугаар</label>
+                    <input type="text" id="pickup-apartment" name="pickup-apartment">
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-phone">Утасны дугаар</label>
+                    <input type="text" id="pickup-phone" name="pickup-phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-type-order">Хүлээн авах төрөл</label>
+                    <select id="pickup-type-order" name="pickup-type-order">
+                        <option value="">Сонгох</option>
+                        <option value="home">Гэртээ хүлээн авах</option>
+                        <option value="office">Ажиллаж буй байр</option>
+                        <option value="post-office">Шуудангийн байр</option>
+                        <option value="locker">Өөр хаяг дээр</option>
+                        <option value="other">Бусад</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="service-type">Үйлчилгээний төрөл</label>
+                    <select id="service-type" name="service-type">
+                        <option value="">Сонгох</option>
+                        <option value="standard">Стандарт</option>
+                        <option value="express">Шуурхай</option>
+                        <option value="overnight">Шөнийн</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Нийт үнэ</button>
+            </form>
+
+            <div class="result">0.00₮</div>
+            <div class="details">
+                <p>Очих өдөр: Thu, May 31</p>
+                <p>Цаг: 6:00 PM</p>
+                <p>Суурь ханш: 0.00₮</p>
+                <p>Шатахууны нэмэгдэл: 0.00₮</p>
+                <p>Нэмэлт хураамж: 0.00₮</p>
+                <p>Тооцоолсон нийт үнэ: 0.00₮</p>
+            </div>
+        </div>
+
+        <div id="track-parcel" class="container" style="display:none;">
+            <h1>Илгээмж хайх</h1>
+            <form>
+                <div class="form-group">
+                    <label for="tracking-number">Илгээмжийн дугаар</label>
+                    <input type="text" id="tracking-number" name="tracking-number" placeholder="Илгээмжийн дугаараа оруулна уу">
+                </div>
+
+                <button type="submit" class="btn">Хайх</button>
+            </form>
+            <div id="tracking-result" class="result"></div>
+        </div>
+
+        <div id="order" class="container" style="display:none;">
+            <h1>Захиалга хийх</h1>
+            <form>
+                <div class="form-group">
+                    <label for="sender-location">Илгээгчийн байршил</label>
+                    <input type="text" id="sender-location" name="sender-location">
+                </div>
+
+                <div class="form-group">
+                    <label for="receiver-location">Хүлээн авагчийн байршил</label>
+                    <input type="text" id="receiver-location" name="receiver-location">
+                </div>
+
+                <div class="form-group">
+                    <label for="goods-name">Барааны нэр</label>
+                    <input type="text" id="goods-name" name="goods-name">
+                </div>
+
+                <div class="form-group">
+                    <label for="goods-details">Анхаарах зүйл</label>
+                    <input type="text" id="goods-details" name="goods-details">
+                </div>
+
+                <div class="form-group">
+                    <label for="service-type-order">Үйлчилгээний төрөл</label>
+                    <select id="service-type-order" name="service-type-order">
+                        <option value="">Сонгох</option>
+                        <option value="standard">Стандарт</option>
+                        <option value="express">Шуурхай</option>
+                        <option value="overnight">Шөнийн</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="package-type-order">Сав баглаа боодлын төрөл</label>
+                    <select id="package-type-order" name="package-type-order">
+                        <option value="">Сонгох</option>
+                        <option value="document">Баримт бичиг</option>
+                        <option value="small-package">Жижиг хайрцаг</option>
+                        <option value="medium-package">Дунд хайрцаг</option>
+                        <option value="large-package">Том хайрцаг</option>
+                        <option value="fragile">Өөрийн хайрцагтай</option>
+                        <option value="other">Бусад</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="goods-quantity-order">Тоо ширхэг</label>
+                    <input type="text" id="goods-quantity-order" name="goods-quantity-order">
+                </div>
+                
+                <div class="form-group">
+                    <label for="goods-weight-order">Хэмжээ жин</label>
+                    <input type="text" id="goods-weight-order" name="goods-weight-order">
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-type-order">Хүлээн авах төрөл</label>
+                    <select id="pickup-type-order" name="pickup-type-order">
+                        <option value="">Сонгох</option>
+                        <option value="home">Гэртээ хүлээн авах</option>
+                        <option value="office">Ажиллаж буй байр</option>
+                        <option value="post-office">Шуудангийн байр</option>
+                        <option value="locker">Өөр хаяг дээр</option>
+                        <option value="other">Бусад</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment-method">Төлбөрөө төлөх</label>
+                    <div>
+                        <input type="radio" id="card" name="payment-method" value="card">
+                        <label for="card">Карт</label>
+                        <input type="radio" id="qpay" name="payment-method" value="qpay">
+                        <label for="qpay">Q-Pay</label>
+                        <input type="radio" id="cash" name="payment-method" value="cash">
+                        <label for="cash">Бэлэн</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="order-date">Захиалгын огноо</label>
+                    <input type="date" id="order-date" name="order-date">
+                </div>
+
+                <button type="submit" class="btn">Захиалах</button>
+            </form>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Монгол Шуудан</p>
+        </footer>
+
+        <script src="scripts.js"></script>
+    </body>
+    </html>
